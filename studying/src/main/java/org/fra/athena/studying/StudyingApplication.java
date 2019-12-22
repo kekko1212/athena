@@ -1,12 +1,12 @@
-package org.fra.deck_management;
+package org.fra.athena.studying;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DeckManagementApplication {
+public class StudyingApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(DeckManagementApplication.class, args);
+    SpringApplication.run(StudyingApplication.class, args);
   }
 }

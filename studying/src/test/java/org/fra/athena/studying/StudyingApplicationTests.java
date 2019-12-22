@@ -1,10 +1,10 @@
-package org.fra.deck_management;
+package org.fra.athena.studying;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DeckManagementApplicationTests {
+class StudyingApplicationTests {
 
   @Test
   void contextLoads() {}

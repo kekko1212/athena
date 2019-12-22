@@ -1,4 +1,4 @@
-package org.fra.identity;
+package org.fra.athena.identity;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

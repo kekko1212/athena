@@ -1,12 +1,12 @@
-package org.fra.rewarding;
+package org.fra.athena.deck_management;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RewardingApplication {
+public class DeckManagementApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(RewardingApplication.class, args);
+    SpringApplication.run(DeckManagementApplication.class, args);
   }
 }

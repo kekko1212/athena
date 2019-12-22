@@ -1,10 +1,10 @@
-package org.fra.studying;
+package org.fra.athena.identity;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class StudyingApplicationTests {
+class IdentityApplicationTests {
 
   @Test
   void contextLoads() {}

@@ -1,10 +1,10 @@
-package org.fra.identity;
+package org.fra.athena.rewarding;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class IdentityApplicationTests {
+class RewardingApplicationTests {
 
   @Test
   void contextLoads() {}
