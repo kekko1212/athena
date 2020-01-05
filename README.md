@@ -42,3 +42,6 @@ TBD
 
 ## Demoing the API
 TBD
+
+## Kanban Board
+I used a Trello board [here](https://trello.com/b/ZXlyA2dN/athena) to manage and keep tracks of the things to do. I could also have used Github tbh.
