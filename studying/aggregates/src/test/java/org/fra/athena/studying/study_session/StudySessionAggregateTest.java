@@ -5,6 +5,7 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.util.HashSet;
 import org.fra.athena.studying.DomainException;
+import org.fra.athena.studying.card.CardAggregate;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +13,7 @@ public class StudySessionAggregateTest {
 
   @Test
   public void aStudyingSessionCanBeStarted() {
-    final Deck deck = Deck.newDeck(CardAggregate.newCard(new Term("House")));
+    final Deck deck = Deck.newDeck(CardAggregate.newCard("House"));
 
     final StudySessionAggregate studySessionAggregate =
         StudySessionAggregate.startStudySession(deck);
@@ -22,11 +23,9 @@ public class StudySessionAggregateTest {
 
   @Test
   void startingStudyingSessionIsNotPossibleIfThereAreNoUnfamiliarCardsInTheSelectedDeck() {
-    final CardAggregate cardAggregate = CardAggregate.newCard(new Term("House"));
+    final CardAggregate cardAggregate = CardAggregate.newCard("House");
     cardAggregate.answer(
-        new Answer(
-            "House",
-            Clock.fixed(Instant.parse("2020-01-01T00:00:00.00Z"), ZoneId.systemDefault())));
+        "House", Clock.fixed(Instant.parse("2020-01-01T00:00:00.00Z"), ZoneId.systemDefault()));
 
     final Deck deck = Deck.newDeck(cardAggregate);
 
@@ -36,7 +35,7 @@ public class StudySessionAggregateTest {
 
   @Test
   public void anOngoingStudyingSessionCanBeEnded() {
-    final Deck deck = Deck.newDeck(CardAggregate.newCard(new Term("House")));
+    final Deck deck = Deck.newDeck(CardAggregate.newCard("House"));
     final StudySessionAggregate studySessionAggregate =
         StudySessionAggregate.startStudySession(deck);
 
@@ -50,7 +49,7 @@ public class StudySessionAggregateTest {
 
   @Test
   public void endingAnAlreadyEndedStudyingSessionResultsInAnException() {
-    final Deck deck = Deck.newDeck(CardAggregate.newCard(new Term("House")));
+    final Deck deck = Deck.newDeck(CardAggregate.newCard("House"));
     final StudySessionAggregate studySessionAggregate =
         StudySessionAggregate.startStudySession(deck);
 
@@ -61,10 +60,10 @@ public class StudySessionAggregateTest {
 
   @Test
   public void canGetTheCardsToStudyFromTheDeck() {
-    final Deck deck = Deck.newDeck(CardAggregate.newCard(new Term("House")));
+    final Deck deck = Deck.newDeck(CardAggregate.newCard("House"));
 
-    deck.addCard(CardAggregate.newCard(new Term("Hill")));
-    deck.addCard(CardAggregate.newCard(new Term("Tree")));
+    deck.addCard(CardAggregate.newCard("Hill"));
+    deck.addCard(CardAggregate.newCard("Tree"));
 
     final StudySessionAggregate studySessionAggregate =
         StudySessionAggregate.startStudySession(deck);

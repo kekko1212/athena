@@ -1,4 +1,4 @@
-package org.fra.athena.studying.study_session;
+package org.fra.athena.studying.card;
 
 import java.time.Clock;
 import java.time.Instant;
@@ -19,27 +19,25 @@ class CardAggregateTest {
 
   @Test
   void correctResultIsReturnedIfCorrectAnswerIsGiven() {
-    final CardAggregate cardAggregate = CardAggregate.newCard(new Term("Husband"));
-    final Answer correctAnswer = new Answer("Husband", this.clock);
+    final CardAggregate cardAggregate = CardAggregate.newCard("Husband");
 
-    final Result result = cardAggregate.answer(correctAnswer);
+    final Result result = cardAggregate.answer("Husband", this.clock);
 
     Assertions.assertTrue(result.isCorrect());
   }
 
   @Test
   void wrongResultIsReturnedIfWrongAnswerIsGiven() {
-    final CardAggregate cardAggregate = CardAggregate.newCard(new Term("Woman"));
-    final Answer wrongAnswer = new Answer("Man", this.clock);
+    final CardAggregate cardAggregate = CardAggregate.newCard("Woman");
 
-    final Result result = cardAggregate.answer(wrongAnswer);
+    final Result result = cardAggregate.answer("Man", this.clock);
 
     Assertions.assertFalse(result.isCorrect());
   }
 
   @Test
   void cardIsUnfamiliarByDefault() {
-    final CardAggregate cardAggregate = CardAggregate.newCard(new Term("House"));
+    final CardAggregate cardAggregate = CardAggregate.newCard("House");
 
     Assertions.assertTrue(cardAggregate.isUnfamiliar());
   }
@@ -54,7 +52,7 @@ class CardAggregateTest {
   @Test
   void cardIsStillFamiliarIfAnsweredCorrectlyASecondTimeInARow() {
     final CardAggregate familiarCard = this.makeFamiliarCard();
-    familiarCard.answer(new Answer("House", this.clock));
+    familiarCard.answer("House", this.clock);
 
     Assertions.assertTrue(familiarCard.isFamiliar());
   }
@@ -69,7 +67,7 @@ class CardAggregateTest {
   @Test
   void cardBecomeUnfamiliarIfAnsweredWrongly() {
     final CardAggregate masteredCard = this.makeMasteredCard();
-    masteredCard.answer(new Answer("Wrong Answer", this.clock));
+    masteredCard.answer("Wrong Answer", this.clock);
 
     Assertions.assertTrue(masteredCard.isUnfamiliar());
   }
@@ -93,17 +91,17 @@ class CardAggregateTest {
   }
 
   private CardAggregate makeMasteredCard() {
-    final CardAggregate cardAggregate = CardAggregate.newCard(new Term("House"));
-    cardAggregate.answer(new Answer("House", this.clock));
-    cardAggregate.answer(new Answer("House", this.clock));
-    cardAggregate.answer(new Answer("House", this.clock));
+    final CardAggregate cardAggregate = CardAggregate.newCard("House");
+    cardAggregate.answer("House", this.clock);
+    cardAggregate.answer("House", this.clock);
+    cardAggregate.answer("House", this.clock);
 
     return cardAggregate;
   }
 
   private CardAggregate makeFamiliarCard() {
-    final CardAggregate cardAggregate = CardAggregate.newCard(new Term("House"));
-    cardAggregate.answer(new Answer("House", this.clock));
+    final CardAggregate cardAggregate = CardAggregate.newCard("House");
+    cardAggregate.answer("House", this.clock);
 
     return cardAggregate;
   }

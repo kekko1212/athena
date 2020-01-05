@@ -2,6 +2,7 @@ package org.fra.athena.studying.study_session;
 
 import java.util.HashSet;
 import org.fra.athena.studying.DomainException;
+import org.fra.athena.studying.card.CardAggregate;
 
 class Deck {
 

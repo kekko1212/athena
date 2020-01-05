@@ -1,4 +1,4 @@
-package org.fra.athena.studying.study_session;
+package org.fra.athena.studying.card;
 
 class ConsecutiveCorrectAnswerCounter {
   private Integer counter;
@@ -19,7 +19,7 @@ class ConsecutiveCorrectAnswerCounter {
     this.counter = 0;
   }
 
-  public Integer getValue() {
+  Integer getValue() {
     return this.counter;
   }
 }

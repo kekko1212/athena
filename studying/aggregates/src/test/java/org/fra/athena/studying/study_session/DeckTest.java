@@ -7,13 +7,14 @@ import java.util.HashSet;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import org.fra.athena.studying.DomainException;
+import org.fra.athena.studying.card.CardAggregate;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class DeckTest {
 
   private static CardAggregate generateCard(final Integer i) {
-    return CardAggregate.newCard(new Term("House"));
+    return CardAggregate.newCard("House");
   }
 
   private static HashSet<CardAggregate> generateNCards(final Integer numberOfCards) {
@@ -39,14 +40,13 @@ class DeckTest {
 
     final Exception exception =
         Assertions.assertThrows(
-            DomainException.class,
-            () -> deckWith100Cards.addCard(CardAggregate.newCard(new Term("House"))));
+            DomainException.class, () -> deckWith100Cards.addCard(CardAggregate.newCard("House")));
     Assertions.assertEquals("Cannot add more than 100 cards to a deck.", exception.getMessage());
   }
 
   @Test
   void canRetrieveCardsFromDeck() {
-    final Deck deck = Deck.newDeck(CardAggregate.newCard(new Term("House")));
+    final Deck deck = Deck.newDeck(CardAggregate.newCard("House"));
 
     Assertions.assertNotNull(deck.getCards());
     Assertions.assertEquals(1, deck.getCards().size());
@@ -54,11 +54,9 @@ class DeckTest {
 
   @Test
   void containsNoUnfamiliarCards() {
-    final CardAggregate cardAggregate = CardAggregate.newCard(new Term("House"));
+    final CardAggregate cardAggregate = CardAggregate.newCard("House");
     cardAggregate.answer(
-        new Answer(
-            "House",
-            Clock.fixed(Instant.parse("2020-01-01T00:00:00.00Z"), ZoneId.systemDefault())));
+        "House", Clock.fixed(Instant.parse("2020-01-01T00:00:00.00Z"), ZoneId.systemDefault()));
 
     final Deck deck = Deck.newDeck(cardAggregate);
 

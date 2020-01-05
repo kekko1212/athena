@@ -3,6 +3,7 @@ package org.fra.athena.studying.study_session;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import org.fra.athena.studying.DomainException;
+import org.fra.athena.studying.card.CardAggregate;
 
 public class StudySessionAggregate {
 

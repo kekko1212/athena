@@ -1,10 +1,11 @@
-package org.fra.athena.studying.study_session;
+package org.fra.athena.studying.card;
 
+import java.time.Clock;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.LinkedList;
 
-class CardAggregate {
+public class CardAggregate {
 
   CardRootEntity rootEntity;
   LinkedList<Answer> answers = new LinkedList<>();
@@ -13,11 +14,13 @@ class CardAggregate {
     this.rootEntity = new CardRootEntity(type, term);
   }
 
-  public static CardAggregate newCard(final Term term) {
-    return new CardAggregate(term, CardType.UNFAMILIAR);
+  public static CardAggregate newCard(final String term) {
+    return new CardAggregate(new Term(term), CardType.UNFAMILIAR);
   }
 
-  Result answer(final Answer answer) {
+  public Result answer(final String givenAnswer, final Clock clock) {
+    final Answer answer = new Answer(givenAnswer, clock);
+
     this.answers.add(answer);
 
     if (this.rootEntity.isCorrect(answer)) {
@@ -31,7 +34,7 @@ class CardAggregate {
     return Result.WRONG;
   }
 
-  boolean needsReview(final Instant now) {
+  public boolean needsReview(final Instant now) {
     if (this.isUnfamiliar()) {
       return true;
     }
@@ -51,7 +54,7 @@ class CardAggregate {
     return this.answers.getLast();
   }
 
-  boolean isUnfamiliar() {
+  public boolean isUnfamiliar() {
     return this.rootEntity.getType() == CardType.UNFAMILIAR;
   }
 

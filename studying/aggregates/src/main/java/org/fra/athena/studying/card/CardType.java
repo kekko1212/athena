@@ -1,4 +1,4 @@
-package org.fra.athena.studying.study_session;
+package org.fra.athena.studying.card;
 
 enum CardType {
   UNFAMILIAR,
