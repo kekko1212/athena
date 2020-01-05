@@ -48,8 +48,8 @@ class DeckTest {
   void canRetrieveCardsFromDeck() {
     final Deck deck = Deck.newDeck(CardAggregate.newCard(new Term("House")));
 
-    Assertions.assertNotNull(deck.getCardAggregates());
-    Assertions.assertEquals(1, deck.getCardAggregates().size());
+    Assertions.assertNotNull(deck.getCards());
+    Assertions.assertEquals(1, deck.getCards().size());
   }
 
   @Test

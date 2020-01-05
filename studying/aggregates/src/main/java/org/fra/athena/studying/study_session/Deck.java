@@ -5,14 +5,14 @@ import org.fra.athena.studying.DomainException;
 
 class Deck {
 
-  private final HashSet<CardAggregate> cardAggregates;
+  private final HashSet<CardAggregate> cards;
 
-  private Deck(final HashSet<CardAggregate> cardAggregates) {
-    if (cardAggregates.size() > 100) {
+  private Deck(final HashSet<CardAggregate> cards) {
+    if (cards.size() > 100) {
       throw new DomainException("A deck can contain only up to 100 cards.");
     }
 
-    this.cardAggregates = cardAggregates;
+    this.cards = cards;
   }
 
   static Deck newDeck(final HashSet<CardAggregate> cardAggregates) {
@@ -26,19 +26,19 @@ class Deck {
     return new Deck(cardAggregates);
   }
 
-  HashSet<CardAggregate> getCardAggregates() {
-    return this.cardAggregates;
+  HashSet<CardAggregate> getCards() {
+    return this.cards;
   }
 
   void addCard(final CardAggregate cardAggregate) {
-    if (this.cardAggregates.size() >= 100) {
+    if (this.cards.size() >= 100) {
       throw new DomainException("Cannot add more than 100 cards to a deck.");
     }
 
-    this.cardAggregates.add(cardAggregate);
+    this.cards.add(cardAggregate);
   }
 
   boolean containsNoUnfamiliarCards() {
-    return !this.cardAggregates.stream().anyMatch(CardAggregate::isUnfamiliar);
+    return !this.cards.stream().anyMatch(CardAggregate::isUnfamiliar);
   }
 }

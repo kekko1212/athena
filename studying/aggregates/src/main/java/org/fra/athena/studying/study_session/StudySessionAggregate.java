@@ -29,6 +29,6 @@ public class StudySessionAggregate {
   }
 
   public HashSet<CardAggregate> getCardsToStudy() {
-    return this.rootEntity.getDeck().getCardAggregates();
+    return this.rootEntity.getDeck().getCards();
   }
 }
