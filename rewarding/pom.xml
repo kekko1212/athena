@@ -2,8 +2,24 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
+  <groupId>org.fra.athena</groupId>
   <artifactId>rewarding</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+  <name>Rewarding</name>
+  <description>Supporting Sub-Domain for the Athena app</description>
+
+  <packaging>jar</packaging>
+
+  <parent>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <groupId>org.springframework.boot</groupId>
+    <relativePath/>
+    <version>2.2.2.RELEASE</version> <!-- lookup parent from repository -->
+  </parent>
+
   <build>
     <plugins>
       <plugin>
@@ -36,22 +52,10 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  <description>Supporting Sub-Domain for the Athena app</description>
-  <groupId>org.fra.athena</groupId>
-  <modelVersion>4.0.0</modelVersion>
-  <name>Rewarding</name>
-  <parent>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <groupId>org.springframework.boot</groupId>
-    <relativePath/>
-    <version>2.2.2.RELEASE</version> <!-- lookup parent from repository -->
-  </parent>
 
   <properties>
     <maven.compiler.source>13</maven.compiler.source>
     <maven.compiler.target>13</maven.compiler.target>
   </properties>
-
-  <version>0.0.1-SNAPSHOT</version>
 
 </project>

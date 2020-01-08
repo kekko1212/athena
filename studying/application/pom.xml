@@ -2,17 +2,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
+  <groupId>org.fra.athena.studying</groupId>
   <artifactId>application</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
-      <version>5.2.2.RELEASE</version>
-      <scope>compile</scope>
-    </dependency>
-  </dependencies>
+  <name>Application</name>
+  <description>Application Services of the Studying Core Sub-Domain</description>
+
+  <packaging>jar</packaging>
 
   <parent>
     <artifactId>spring-boot-starter-parent</artifactId>
@@ -21,11 +20,26 @@
     <version>2.2.2.RELEASE</version> <!-- lookup parent from repository -->
   </parent>
 
-  <description>Application Services of the Studying Core Sub-Domain</description>
-  <groupId>org.fra.athena.studying</groupId>
-  <modelVersion>4.0.0</modelVersion>
-  <name>Application Services</name>
-  <packaging>jar</packaging>
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>5.2.2.RELEASE</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.fra.athena.studying</groupId>
+      <artifactId>domain</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>RELEASE</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
 
   <properties>
     <maven.compiler.source>13</maven.compiler.source>

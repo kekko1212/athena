@@ -2,22 +2,27 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <artifactId>studying</artifactId>
-  <description>Core Sub-Domain of the Athena app</description>
-  <groupId>org.fra.athena</groupId>
   <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.fra.athena</groupId>
+  <artifactId>studying</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+  <name>Studying</name>
+  <description>Core Sub-Domain of the Athena app</description>
+
+  <packaging>pom</packaging>
 
   <modules>
     <module>domain</module>
     <module>application</module>
+    <module>infrastructure</module>
+    <module>infrastructure</module>
   </modules>
 
-  <name>Studying</name>
-  <packaging>pom</packaging>
   <properties>
     <maven.compiler.source>13</maven.compiler.source>
     <maven.compiler.target>13</maven.compiler.target>
   </properties>
-  <version>0.0.1-SNAPSHOT</version>
 
 </project>

@@ -2,24 +2,27 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <artifactId>athena</artifactId>
-
-  <description>A simple flash card app to learn and memorise anything you want.</description>
-  <groupId>org.fra.athena</groupId>
   <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.fra.athena</groupId>
+  <artifactId>athena</artifactId>
+  <version>0.0.1</version>
+
+  <name>Athena</name>
+  <description>A simple flash card app to learn and memorise anything you want.</description>
+
+  <packaging>pom</packaging>
+
   <modules>
     <module>studying</module>
     <module>deck_management</module>
     <module>rewarding</module>
     <module>identity</module>
   </modules>
-  <name>Athena</name>
-  <packaging>pom</packaging>
+
   <properties>
     <maven.compiler.source>13</maven.compiler.source>
     <maven.compiler.target>13</maven.compiler.target>
   </properties>
-
-  <version>0.0.1</version>
 
 </project>
